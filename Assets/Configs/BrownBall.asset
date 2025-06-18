@@ -13,5 +13,9 @@ MonoBehaviour:
   m_Name: BrownBall
   m_EditorClassIdentifier: Assembly-CSharp::StoreStuff
   stuffName: BrownBall
-  isBye: 1
+  isBuy: 1
   price: 0
+  isSelected: 1
+  siblings:
+  - {fileID: 11400000, guid: 76be3f911a932a34190c166a85c01621, type: 2}
+  _sprite: {fileID: 1130154983197573094, guid: f213c714e998c424c868c4960e9a26e8, type: 3}

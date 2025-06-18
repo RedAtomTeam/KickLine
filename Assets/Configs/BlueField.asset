@@ -13,5 +13,10 @@ MonoBehaviour:
   m_Name: BlueField
   m_EditorClassIdentifier: Assembly-CSharp::StoreStuff
   stuffName: BlueField
-  isBye: 0
+  isBuy: 1
   price: 10
+  isSelected: 0
+  siblings:
+  - {fileID: 11400000, guid: 9b52abb423780ba4ea43317771c3f4c8, type: 2}
+  - {fileID: 11400000, guid: cb8c869fc5e43874780b28342c2b531b, type: 2}
+  _sprite: {fileID: 4812203091216738107, guid: 3936520140cbac24eab02064743a30b0, type: 3}

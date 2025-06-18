@@ -13,5 +13,10 @@ MonoBehaviour:
   m_Name: PurpureField
   m_EditorClassIdentifier: Assembly-CSharp::StoreStuff
   stuffName: PurpuireField
-  isBye: 0
+  isBuy: 0
   price: 10
+  isSelected: 0
+  siblings:
+  - {fileID: 11400000, guid: 9b52abb423780ba4ea43317771c3f4c8, type: 2}
+  - {fileID: 11400000, guid: 744b940bc0226214482e658d1814d65a, type: 2}
+  _sprite: {fileID: 7971498871667320158, guid: 9468d0adfef69db449101bdee5581575, type: 3}

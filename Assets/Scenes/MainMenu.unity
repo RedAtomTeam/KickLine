@@ -6045,7 +6045,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1143169338
 Transform:
   m_ObjectHideFlags: 0
@@ -6077,7 +6077,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _soundtracksSource: {fileID: 1695900603}
   _soundEffectsSource: {fileID: 508328433}
-  _clips: []
+  _clips:
+  - {fileID: 8300000, guid: f420cbe0b63dbe74e851a187d45f349d, type: 3}
 --- !u!1 &1145628954
 GameObject:
   m_ObjectHideFlags: 0

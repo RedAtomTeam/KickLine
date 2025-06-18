@@ -21,13 +21,3 @@ public class StoreConfig : ScriptableObject
         _storeUpdateBalanceEvent?.Invoke();
     }
 }
-
-[CreateAssetMenu(fileName = "StoreStuff", menuName = "Scriptable Objects/StoreStuff")]
-public class StoreStuff : ScriptableObject
-{
-    public string stuffName;
-    public bool isBuy;
-    public int price;
-    public bool isSelected;
-    public List<StoreStuff> siblings;
-} 

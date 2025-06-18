@@ -13,5 +13,10 @@ MonoBehaviour:
   m_Name: GreenField
   m_EditorClassIdentifier: Assembly-CSharp::StoreStuff
   stuffName: GreenField
-  isBye: 1
+  isBuy: 1
   price: 0
+  isSelected: 1
+  siblings:
+  - {fileID: 11400000, guid: cb8c869fc5e43874780b28342c2b531b, type: 2}
+  - {fileID: 11400000, guid: 744b940bc0226214482e658d1814d65a, type: 2}
+  _sprite: {fileID: -1249394737827739574, guid: 52d155b49d47af146b9e6ba01aca5ec3, type: 3}
