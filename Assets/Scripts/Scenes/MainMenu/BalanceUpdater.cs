@@ -10,6 +10,7 @@ public class BalanceUpdater : MonoBehaviour
 
     private void Awake()
     {
+        UpdateBalance();
         _storeConfig._storeUpdateBalanceEvent += UpdateBalance;
     }
 

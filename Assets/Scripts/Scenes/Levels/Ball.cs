@@ -1,13 +1,17 @@
+using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 public class Ball : MonoBehaviour
 {
     [SerializeField] private float _force;
-    
+    [SerializeField] private List<StoreStuff> _ballStuff;
+    [SerializeField] private Image _ballImage;
+
     private Rigidbody2D _rb;
     private bool _isStart = false;
-    private bool _isEnable = false;
+    private bool _isEnable = false; 
+
 
     private void OnEnable()
     {
@@ -18,6 +22,15 @@ public class Ball : MonoBehaviour
     {
         _isStart = false;
         _rb = GetComponent<Rigidbody2D>();
+
+        foreach (var ball in _ballStuff)
+        {
+            if (ball.isSelected)
+            {
+                _ballImage.sprite = ball._sprite;
+                break;
+            }
+        }
     }
 
     private void Update()
@@ -29,7 +42,6 @@ public class Ball : MonoBehaviour
                 if (Input.touchCount > 0 || Input.GetMouseButton(0))
                 {
                     _isStart = true;
-                    print("Click");
 
                     if ((Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began) || Input.GetMouseButton(0))
                     {
@@ -42,7 +54,6 @@ public class Ball : MonoBehaviour
                         {
                             touchWorldPos = Input.mousePosition;
                         }
-
 
                         Vector2 direction = (touchWorldPos - (Vector2)transform.position).normalized;
                         _rb.AddForce(direction * _force, ForceMode2D.Impulse);

@@ -29,7 +29,6 @@ public class Field : MonoBehaviour
 
     public void UpdateStatus()
     {
-        print("Updater state");
         if (_stuff.isBuy)
         {
             _label.gameObject.SetActive(true);
@@ -38,6 +37,7 @@ public class Field : MonoBehaviour
                 _label.color = _selectedColor;
                 _text.gameObject.SetActive(true);
                 _background.sprite = _stuff._sprite;
+                _button.onClick.AddListener(SetField);
             }
             else
             {

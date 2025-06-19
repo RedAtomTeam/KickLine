@@ -24,6 +24,7 @@ public class EndWindowPerformer : MonoBehaviour
     {
         if (!_isPerform)
         {
+            _body.SetActive(true);
             _isPerform = true;
             _labelText.text = lableText;
             _moneyText.text = moneyValue.ToString();

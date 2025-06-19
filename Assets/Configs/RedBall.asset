@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::StoreStuff
   stuffName: RedBall
   isBuy: 0
-  price: 10
+  price: 100
   isSelected: 0
   siblings:
   - {fileID: 11400000, guid: f6d48d0c2a3920840b9f1860d351d4d0, type: 2}

@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::StoreStuff
   stuffName: PurpuireField
   isBuy: 0
-  price: 10
+  price: 100
   isSelected: 0
   siblings:
   - {fileID: 11400000, guid: 9b52abb423780ba4ea43317771c3f4c8, type: 2}

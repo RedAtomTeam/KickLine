@@ -22,6 +22,7 @@ public class ShopStuffStateController : MonoBehaviour
 
     private void UpdateState()
     {
+        print("Update State");
         if (_storeStuff != null)
         {
             if (_storeStuff.isSelected)
@@ -50,6 +51,8 @@ public class ShopStuffStateController : MonoBehaviour
 
     public void Buy() 
     {
+        print(!_storeStuff.isBuy);
+        print(_storeConfig.money >= _storeStuff.price);
         if (!_storeStuff.isBuy)
         {
             if (_storeConfig.money >= _storeStuff.price)
@@ -72,5 +75,6 @@ public class ShopStuffStateController : MonoBehaviour
                 sib.isSelected = false;
             UpdateState();            
         }
+        _storeConfig.PerformUpdateStates();
     }
 }

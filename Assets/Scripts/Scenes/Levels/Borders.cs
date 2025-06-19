@@ -17,6 +17,7 @@ public class Borders : MonoBehaviour
 
     private void PerformBorderBallEvent()
     {
+        print("BallEvent");
         borderBallEvent?.Invoke();
     }
 

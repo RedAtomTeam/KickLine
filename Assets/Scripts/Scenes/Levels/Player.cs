@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class Player : MonoBehaviour
+public class Player : MonoBehaviour, IPointerDownHandler, IDragHandler
 {
     [SerializeField] private float _defaultScaleX;
     private RectTransform _rectTransform;
@@ -31,22 +31,7 @@ public class Player : MonoBehaviour
     }
 
     private void Update()
-    {
-        if (_isInterract)
-        {
-            if (Input.touchCount > 0 && IsTouchOnObject(Input.GetTouch(0)))
-            {
-                Touch touch = Input.GetTouch(0);
-                Vector2 touchWorldPos = mainCamera.ScreenToWorldPoint(touch.position);
-
-                transform.position = Vector2.Lerp(
-                    transform.position,
-                    GetClampedPosition(touchWorldPos),
-                    dragSpeed * Time.deltaTime
-                );
-            }
-        }
-        
+    {   
         if (_rectTransform.anchoredPosition.x > 0)
             _rectTransform.localScale = new Vector3(-_defaultScaleX, 1, 1);
         else
@@ -55,35 +40,43 @@ public class Player : MonoBehaviour
 
     public void OnPointerDown(PointerEventData eventData)
     {
-        RectTransformUtility.ScreenPointToLocalPointInRectangle(
-            rectTransform,
-            eventData.position,
-            mainCamera,
-            out offset
-        );
-        offset = rectTransform.anchoredPosition - offset;
+        if (_isInterract)
+        {
+            RectTransformUtility.ScreenPointToLocalPointInRectangle(
+                rectTransform,
+                eventData.position,
+                eventData.pressEventCamera,
+                out offset
+            );
+        }
     }
-
 
     public void OnDrag(PointerEventData eventData)
     {
-        if (RectTransformUtility.ScreenPointToLocalPointInRectangle(
+        if (_isInterract)
+        {
+            if (RectTransformUtility.ScreenPointToLocalPointInRectangle(
             parentBounds,
             eventData.position,
-            mainCamera,
-            out Vector2 localPoint
-        ))
-        {
-            Vector2 clampedPosition = new Vector2(
-                Mathf.Clamp(localPoint.x + offset.x,
-                    parentBounds.rect.xMin + rectTransform.rect.width / 2,
-                    parentBounds.rect.xMax - rectTransform.rect.width / 2),
-                Mathf.Clamp(localPoint.y + offset.y,
-                    parentBounds.rect.yMin + rectTransform.rect.height / 2,
-                    parentBounds.rect.yMax - rectTransform.rect.height / 2)
-            );
+            eventData.pressEventCamera,
+            out Vector2 localCursor
+            ))
+            {
+                Vector2 newPos = localCursor - offset;
 
-            rectTransform.anchoredPosition = clampedPosition;
+                newPos.x = Mathf.Clamp(
+                    newPos.x,
+                    parentBounds.rect.xMin + rectTransform.rect.width / 2,
+                    parentBounds.rect.xMax - rectTransform.rect.width / 2
+                );
+                newPos.y = Mathf.Clamp(
+                    newPos.y,
+                    parentBounds.rect.yMin + rectTransform.rect.height / 2,
+                    parentBounds.rect.yMax - rectTransform.rect.height / 2
+                );
+
+                rectTransform.anchoredPosition = newPos;
+            }
         }
     }
 
