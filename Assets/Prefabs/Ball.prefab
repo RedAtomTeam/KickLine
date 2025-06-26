@@ -86,7 +86,6 @@ CircleCollider2D:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8051300376926946587}
   m_Enabled: 1
-  serializedVersion: 3
   m_Density: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:
@@ -110,13 +109,13 @@ CircleCollider2D:
     m_Bits: 4294967295
   m_IsTrigger: 0
   m_UsedByEffector: 0
-  m_CompositeOperation: 0
-  m_CompositeOrder: 0
+  m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
   m_Radius: 24
 --- !u!50 &4186973523271682706
 Rigidbody2D:
-  serializedVersion: 5
+  serializedVersion: 4
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -127,8 +126,8 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDamping: 0
-  m_AngularDamping: 0.05
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
   m_GravityScale: 0
   m_Material: {fileID: 6200000, guid: 0390468ca71944441816c2393c30d974, type: 2}
   m_IncludeLayers:
@@ -157,4 +156,5 @@ MonoBehaviour:
   _ballStuff:
   - {fileID: 11400000, guid: f6d48d0c2a3920840b9f1860d351d4d0, type: 2}
   - {fileID: 11400000, guid: 76be3f911a932a34190c166a85c01621, type: 2}
+  - {fileID: 11400000, guid: c436d00955f433045940dbbc7f55accc, type: 2}
   _ballImage: {fileID: 1680141503580447678}

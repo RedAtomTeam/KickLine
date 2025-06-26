@@ -9,7 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 0}
+  m_Script: {fileID: 11500000, guid: 594a9b664780f3146b5eea1832dcf193, type: 3}
   m_Name: BrownBall
   m_EditorClassIdentifier: Assembly-CSharp::StoreStuff
   stuffName: BrownBall
@@ -18,4 +18,5 @@ MonoBehaviour:
   isSelected: 1
   siblings:
   - {fileID: 11400000, guid: 76be3f911a932a34190c166a85c01621, type: 2}
+  - {fileID: 11400000, guid: c436d00955f433045940dbbc7f55accc, type: 2}
   _sprite: {fileID: 1130154983197573094, guid: f213c714e998c424c868c4960e9a26e8, type: 3}

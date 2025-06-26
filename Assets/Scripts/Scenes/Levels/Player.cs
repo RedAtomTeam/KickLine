@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -10,6 +11,9 @@ public class Player : MonoBehaviour, IPointerDownHandler, IDragHandler
     [SerializeField] private Collider2D movementArea;    
     [SerializeField] private float dragSpeed = 1f;
 
+    [SerializeField] private AudioClip _kickClip;
+
+    private AudioService _audioService;
     private RectTransform rectTransform;
     private Camera mainCamera;
     private Vector2 offset;
@@ -28,6 +32,8 @@ public class Player : MonoBehaviour, IPointerDownHandler, IDragHandler
 
         rectTransform = GetComponent<RectTransform>();
         mainCamera = Camera.main;
+
+        _audioService = AudioService.Instance;
     }
 
     private void Update()
@@ -100,4 +106,11 @@ public class Player : MonoBehaviour, IPointerDownHandler, IDragHandler
         return targetPosition;
     }
 
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Ball"))
+        {
+            _audioService.PlayEffect(_kickClip);
+        }
+    }
 }

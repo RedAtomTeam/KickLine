@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 594a9b664780f3146b5eea1832dcf193, type: 3}
+  m_Name: WhiteBall
+  m_EditorClassIdentifier: Assembly-CSharp::StoreStuff
+  stuffName: WhiteBall
+  isBuy: 0
+  price: 400
+  isSelected: 0
+  siblings:
+  - {fileID: 11400000, guid: f6d48d0c2a3920840b9f1860d351d4d0, type: 2}
+  - {fileID: 11400000, guid: 76be3f911a932a34190c166a85c01621, type: 2}
+  _sprite: {fileID: 21300000, guid: 3f2cfb90e35bca548b001cd3d7fd669b, type: 3}

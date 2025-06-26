@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class ShopStuffStateController : MonoBehaviour
@@ -8,6 +10,10 @@ public class ShopStuffStateController : MonoBehaviour
     [SerializeField] private GameObject _isNotBuy;
     [SerializeField] private GameObject _isSelected;
     [SerializeField] private GameObject _isNotSelected;
+
+    [SerializeField] private List<ShopStuffStateController> _controllers;
+
+    [SerializeField] private TextMeshProUGUI _text;
 
 
     private void Awake()
@@ -22,7 +28,6 @@ public class ShopStuffStateController : MonoBehaviour
 
     private void UpdateState()
     {
-        print("Update State");
         if (_storeStuff != null)
         {
             if (_storeStuff.isSelected)
@@ -30,6 +35,7 @@ public class ShopStuffStateController : MonoBehaviour
                 _isNotBuy.SetActive(false);
                 _isSelected.SetActive(true);
                 _isNotSelected.SetActive(false);
+                _text.text = "IsSelected";
             }
             else
             {
@@ -38,21 +44,22 @@ public class ShopStuffStateController : MonoBehaviour
                     _isNotBuy.SetActive(false);
                     _isSelected.SetActive(false);
                     _isNotSelected.SetActive(true);
+                    _text.text = "IsBuy";
                 }
                 else
                 {
                     _isNotBuy.SetActive(true);
                     _isSelected.SetActive(false);
                     _isNotSelected.SetActive(false);
+                    _text.text = "IsNotSelected";
                 }
             }
         }
+        
     }
 
     public void Buy() 
     {
-        print(!_storeStuff.isBuy);
-        print(_storeConfig.money >= _storeStuff.price);
         if (!_storeStuff.isBuy)
         {
             if (_storeConfig.money >= _storeStuff.price)
@@ -60,8 +67,12 @@ public class ShopStuffStateController : MonoBehaviour
                 _storeConfig.money -= _storeStuff.price;
                 _storeConfig.PerformUpdateBalance();
                 _storeStuff.isBuy = true;
-                _storeConfig.PerformUpdateStates();
+                //_storeConfig.PerformUpdateStates();
                 UpdateState();
+
+                foreach (var controller in _controllers) 
+                    controller.UpdateState();
+                _text.text = "Buy";
             }
         }
     }
@@ -75,6 +86,9 @@ public class ShopStuffStateController : MonoBehaviour
                 sib.isSelected = false;
             UpdateState();            
         }
-        _storeConfig.PerformUpdateStates();
+        //_storeConfig.PerformUpdateStates();
+        foreach (var controller in _controllers)
+            controller.UpdateState();
+        _text.text = "Select";
     }
 }

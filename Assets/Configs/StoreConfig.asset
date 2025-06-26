@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   money: 0
   stuff:
+  - {fileID: 11400000, guid: f6d48d0c2a3920840b9f1860d351d4d0, type: 2}
   - {fileID: 11400000, guid: 76be3f911a932a34190c166a85c01621, type: 2}
-  - {fileID: 11400000, guid: cb8c869fc5e43874780b28342c2b531b, type: 2}
-  - {fileID: 11400000, guid: 744b940bc0226214482e658d1814d65a, type: 2}
+  - {fileID: 11400000, guid: c436d00955f433045940dbbc7f55accc, type: 2}

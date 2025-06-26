@@ -9,14 +9,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 0}
+  m_Script: {fileID: 11500000, guid: 594a9b664780f3146b5eea1832dcf193, type: 3}
   m_Name: PurpureField
   m_EditorClassIdentifier: Assembly-CSharp::StoreStuff
-  stuffName: PurpuireField
+  stuffName: PurpureField
   isBuy: 0
   price: 100
   isSelected: 0
   siblings:
-  - {fileID: 11400000, guid: 9b52abb423780ba4ea43317771c3f4c8, type: 2}
   - {fileID: 11400000, guid: 744b940bc0226214482e658d1814d65a, type: 2}
+  - {fileID: 11400000, guid: 9b52abb423780ba4ea43317771c3f4c8, type: 2}
   _sprite: {fileID: 7971498871667320158, guid: 9468d0adfef69db449101bdee5581575, type: 3}

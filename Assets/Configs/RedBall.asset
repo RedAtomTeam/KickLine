@@ -9,13 +9,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 0}
+  m_Script: {fileID: 11500000, guid: 594a9b664780f3146b5eea1832dcf193, type: 3}
   m_Name: RedBall
   m_EditorClassIdentifier: Assembly-CSharp::StoreStuff
   stuffName: RedBall
   isBuy: 0
-  price: 100
+  price: 200
   isSelected: 0
   siblings:
   - {fileID: 11400000, guid: f6d48d0c2a3920840b9f1860d351d4d0, type: 2}
+  - {fileID: 11400000, guid: c436d00955f433045940dbbc7f55accc, type: 2}
   _sprite: {fileID: -4300515195971062888, guid: 956c21c999b883f49b6d077f2e9e2ac5, type: 3}

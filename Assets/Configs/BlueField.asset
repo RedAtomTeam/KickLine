@@ -9,7 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 0}
+  m_Script: {fileID: 11500000, guid: 594a9b664780f3146b5eea1832dcf193, type: 3}
   m_Name: BlueField
   m_EditorClassIdentifier: Assembly-CSharp::StoreStuff
   stuffName: BlueField
@@ -17,6 +17,6 @@ MonoBehaviour:
   price: 100
   isSelected: 0
   siblings:
-  - {fileID: 11400000, guid: 9b52abb423780ba4ea43317771c3f4c8, type: 2}
   - {fileID: 11400000, guid: cb8c869fc5e43874780b28342c2b531b, type: 2}
+  - {fileID: 11400000, guid: 9b52abb423780ba4ea43317771c3f4c8, type: 2}
   _sprite: {fileID: 4812203091216738107, guid: 3936520140cbac24eab02064743a30b0, type: 3}

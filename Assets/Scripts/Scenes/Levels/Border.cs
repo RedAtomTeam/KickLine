@@ -11,6 +11,7 @@ public class Border : MonoBehaviour
         if (collision.CompareTag("Ball"))
         {
             ballTriggerEvent?.Invoke();
+            collision.gameObject.SetActive(false);
         }    
     }
 

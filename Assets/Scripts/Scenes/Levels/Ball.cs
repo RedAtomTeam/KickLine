@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -8,19 +9,20 @@ public class Ball : MonoBehaviour
     [SerializeField] private List<StoreStuff> _ballStuff;
     [SerializeField] private Image _ballImage;
 
+    [SerializeField] private TextMeshProUGUI? _debugText;
+    
     private Rigidbody2D _rb;
-    private bool _isStart = false;
-    private bool _isEnable = false; 
+    private bool _isActivate = false; 
 
 
-    private void OnEnable()
+
+    public void Activate()
     {
-        _isEnable = true;   
+        _isActivate = true;   
     }
 
     private void Awake()
     {
-        _isStart = false;
         _rb = GetComponent<Rigidbody2D>();
 
         foreach (var ball in _ballStuff)
@@ -35,32 +37,43 @@ public class Ball : MonoBehaviour
 
     private void Update()
     {
-        if (_isEnable)
+
+        string text = "Update ";
+
+        if (_isActivate)
         {
-            if (!_isStart)
+            text = text + "IsActive ";
+
+            if (Input.touchCount > 0 || Input.GetMouseButton(0))
             {
-                if (Input.touchCount > 0 || Input.GetMouseButton(0))
+
+                if ((Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began) || Input.GetMouseButton(0))
                 {
-                    _isStart = true;
+                    text = text + "Touch ";
+                    _isActivate = false;
 
-                    if ((Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began) || Input.GetMouseButton(0))
+                    Vector2 touchWorldPos = Vector2.zero;
+                    if ((Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began))
                     {
-                        Vector2 touchWorldPos = Vector2.zero;
-                        if ((Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began))
-                        {
-                            touchWorldPos = Camera.main.ScreenToWorldPoint(Input.GetTouch(0).position);
-                        }
-                        if (Input.GetMouseButton(0))
-                        {
-                            touchWorldPos = Input.mousePosition;
-                        }
-
-                        Vector2 direction = (touchWorldPos - (Vector2)transform.position).normalized;
-                        _rb.AddForce(direction * _force, ForceMode2D.Impulse);
+                        text = text + "Began ";
+                        touchWorldPos = Camera.main.ScreenToWorldPoint(Input.GetTouch(0).position);
                     }
+                    if (Input.GetMouseButton(0))
+                    {
+                        touchWorldPos = Input.mousePosition;
+                    }
+
+                    Vector2 direction = (touchWorldPos - (Vector2)transform.position).normalized;
+                    _rb.AddForce(direction * _force, ForceMode2D.Impulse);
                 }
             }
         }
+
+        //if (_debugText != null)
+        //{
+        //    _debugText.text = _debugText.text.Length <= text.Length ? text : _debugText.text;
+        //}
+
     }
 
 }
