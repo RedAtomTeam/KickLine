@@ -55,7 +55,7 @@ public class ShopStuffStateController : MonoBehaviour
                 }
             }
         }
-        
+        SOLoader.Instance.SaveAll();
     }
 
     public void Buy() 
@@ -67,7 +67,7 @@ public class ShopStuffStateController : MonoBehaviour
                 _storeConfig.money -= _storeStuff.price;
                 _storeConfig.PerformUpdateBalance();
                 _storeStuff.isBuy = true;
-                //_storeConfig.PerformUpdateStates();
+                _storeConfig.PerformUpdateStates();
                 UpdateState();
 
                 foreach (var controller in _controllers) 
@@ -75,6 +75,7 @@ public class ShopStuffStateController : MonoBehaviour
                 _text.text = "Buy";
             }
         }
+        SOLoader.Instance.SaveAll();
     }
 
     public void Select()
@@ -86,9 +87,10 @@ public class ShopStuffStateController : MonoBehaviour
                 sib.isSelected = false;
             UpdateState();            
         }
-        //_storeConfig.PerformUpdateStates();
+        _storeConfig.PerformUpdateStates();
         foreach (var controller in _controllers)
             controller.UpdateState();
         _text.text = "Select";
+        SOLoader.Instance.SaveAll();
     }
 }

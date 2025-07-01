@@ -36,6 +36,7 @@ public class EndWindowPerformer : MonoBehaviour
             _store.money += moneyValue;
             _nextBtn.SetActive(isWin);
             AudioService.Instance.PlayEffect(clip);
+            SOLoader.Instance.SaveAll();
         }
     }
 }
